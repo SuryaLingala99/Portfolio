@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Technical Deep Dives | Shiva Surya Lingala</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .deep-dive-content {
+            padding: 8rem 0;
+        }
+        .project-block {
+            margin-bottom: 8rem;
+        }
+        .project-block h2 {
+            font-size: 3rem;
+            margin-bottom: 2rem;
+            background: linear-gradient(to right, #fff, var(--accent-blue));
+            -webkit-background-clip: text;
+            background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        .project-block p {
+            font-size: 1.2rem;
+            color: var(--text-muted);
+            margin-bottom: 1.5rem;
+            max-width: 900px;
+        }
+        .tech-stack-list {
+            margin-top: 2rem;
+            display: flex;
+            gap: 1rem;
+            flex-wrap: wrap;
+        }
+        .back-link {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 100;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        .back-link:hover {
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+    <div class="mesh-overlay"></div>
+    <div class="cursor-blob" id="cursor-blob"></div>
+
+    <a href="index.html" class="back-link">← Back to Overview</a>
+
+    <div class="container deep-dive-content">
+        <!-- AmethystTrader Deep Dive -->
+        <article class="project-block animate-in">
+            <h2>AmethystTrader: High-Frequency Predictive Engine</h2>
+            <p>The AmethystTrader addresses the challenge of identifying exploitable anomalies in high-frequency equity markets. At its foundation, the system implements a real-time ingestion layer utilizing Alpaca WebSockets to process asynchronous JSON streams of multi-timeframe bar data. This ingestion mechanism is designed to handle high message throughput while maintaining a persistent cache for low-latency feature calculation.</p>
+            <p>A primary technical accomplishment of this project is the integration of an automated hyperparameter optimization engine. To account for shifting market volatility regimes, the system executes a RandomizedSearchCV sequence across a rolling 5-day historical window. This process leverages Scikit-learn to discover the optimal configuration for an XGBoost ensemble model. To prevent look-ahead bias—a common failure point in financial modeling—the system utilizes TimeSeriesSplit for cross-validation, ensuring the model is strictly trained on chronologically preceding iterations.</p>
+            <p>The feature engineering pipeline transforms raw price and volume metrics into a high-dimensional vector space. Key engineered features include dynamic Volume-to-SMA ratios, RSI divergence, and Bollinger Band width compression. These vectors are then passed through the gradient-boosted decision tree ensemble to output a directional probability map. The engine is hosted on a containerized FastAPI backend on Render, with a secure environment variable management system for managing sensitive API credentials.</p>
+            <div class="tech-stack-list">
+                <span class="tag">Python</span>
+                <span class="tag">XGBoost</span>
+                <span class="tag">Scikit-learn</span>
+                <span class="tag">FastAPI</span>
+                <span class="tag">WebSockets</span>
+            </div>
+        </article>
+
+        <!-- RealEstateSwarm Deep Dive -->
+        <article class="project-block animate-in" style="animation-delay: 0.2s;">
+            <h2>RealEstateSwarm: Multi-Agent Extraction Architecture</h2>
+            <p>The RealEstateSwarm was architected to solve the complexity of aggregating fragmented property data from highly dynamic web sources. Traditional regex-based or static DOM scraping is ineffective against modern anti-bot detections. This system overcomes these limitations by utilizing LangGraph to orchestrate a distributed swarm of specialized AI agents, each tasked with a specific phase of the data synthesis pipeline.</p>
+            <p>The infrastructure utilizes a cluster of headless Playwright browsers to execute complex navigational sequences, bypassing protective layers through adaptive header rotation and simulated human interaction flows. Once a target page is successfully ingested, an Analysis Agent powered by large language models executes a multi-step extraction protocol. This agent is trained to identify and structure property attributes from unstructured text, such as school zone ratings, square footage context, and taxation history.</p>
+            <p>To ensure the integrity of the resulting dataset, the swarm implements a recursive validation loop. Extracted data points are cross-referenced against SERP indexed snapshots to confirm accuracy before being stored in a structured relational format. The entire system is built for deployment within a Dockerized environment, enabling seamless scaling of agent nodes across cloud providers like Render and Vercel. This architecture represents a shift from brittle scraping to a resilient, self-correcting agentic data ingestion pipeline.</p>
+            <div class="tech-stack-list">
+                <span class="tag">LangGraph</span>
+                <span class="tag">Playwright</span>
+                <span class="tag">Multi-Agent Systems</span>
+                <span class="tag">NLP</span>
+                <span class="tag">Docker</span>
+            </div>
+        </article>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
