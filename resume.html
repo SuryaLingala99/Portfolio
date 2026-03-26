@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume | Shiva Surya Lingala</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;600;800&display=swap" rel="stylesheet">
+    <style>
+        .resume-container {
+            padding: 8rem 0;
+            max-width: 900px;
+            margin: 0 auto;
+        }
+        .resume-header {
+            margin-bottom: 4rem;
+            text-align: center;
+        }
+        .resume-header h1 {
+            font-size: 3.5rem;
+            margin-bottom: 0.5rem;
+        }
+        .contact-info {
+            color: var(--text-muted);
+            font-size: 1.1rem;
+            display: flex;
+            justify-content: center;
+            gap: 1.5rem;
+            flex-wrap: wrap;
+        }
+        .resume-section-block {
+            margin-bottom: 4rem;
+        }
+        .section-heading {
+            font-size: 1.8rem;
+            color: #fff;
+            border-bottom: 1px solid var(--glass-border);
+            padding-bottom: 0.5rem;
+            margin-bottom: 2rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+        .experience-item {
+            margin-bottom: 3rem;
+        }
+        .exp-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 0.5rem;
+            flex-wrap: wrap;
+        }
+        .company-name {
+            font-size: 1.4rem;
+            font-weight: 600;
+            color: var(--accent-blue);
+        }
+        .job-title {
+            font-size: 1.2rem;
+            font-weight: 500;
+            color: #fff;
+        }
+        .date-location {
+            color: var(--text-muted);
+            font-size: 0.95rem;
+        }
+        .bullet-list {
+            list-style: none;
+            padding-left: 1.5rem;
+        }
+        .bullet-list li {
+            position: relative;
+            margin-bottom: 0.8rem;
+            color: var(--text-muted);
+        }
+        .bullet-list li::before {
+            content: "•";
+            position: absolute;
+            left: -1.5rem;
+            color: var(--accent-blue);
+        }
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+        .skill-group h4 {
+            color: #fff;
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+        .back-nav {
+            position: fixed;
+            top: 2rem;
+            left: 2rem;
+            z-index: 100;
+            color: var(--text-muted);
+            text-decoration: none;
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+        .back-nav:hover {
+            color: #fff;
+        }
+        @media (max-width: 768px) {
+            .exp-header {
+                flex-direction: column;
+                gap: 0.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="bg-gradient"></div>
+    <div class="mesh-overlay"></div>
+    <div class="cursor-blob" id="cursor-blob"></div>
+
+    <a href="index.html" class="back-nav">← Overview</a>
+
+    <div class="container resume-container">
+        <header class="resume-header animate-in">
+            <h1>Shiva Surya Lingala</h1>
+            <div class="contact-info">
+                <span>Columbus, OH</span>
+                <span>suryalingala99@gmail.com</span>
+                <span>(+1) 380-997-9366</span>
+            </div>
+        </header>
+
+        <section class="resume-section-block glass animate-in" style="animation-delay: 0.1s;">
+            <p style="font-size: 1.2rem; line-height: 1.8;">
+                Data Scientist with over 5 years of experience leveraging advanced analytics and machine learning to solve complex human-centric problems. Expert in automated data lifecycle management, from architecting SQL/Cloud data warehouses to deploying predictive models with high accuracy, as well as building data/ML pipelines and AI workflows to drive efficiency. Passionate about bridging the gap between technical complexity and stakeholder decision-making through high-fidelity visualization and actionable, data-driven insights.
+            </p>
+        </section>
+
+        <section class="resume-section-block animate-in" style="animation-delay: 0.2s;">
+            <h2 class="section-heading">Work Experience</h2>
+
+            <div class="experience-item">
+                <div class="exp-header">
+                    <div>
+                        <span class="company-name">Nationwide Mutual Insurance</span><br>
+                        <span class="job-title">Data Scientist</span>
+                    </div>
+                    <div class="date-location">Mar 2025 – Present | Columbus, OH</div>
+                </div>
+                <ul class="bullet-list">
+                    <li>Productionalized AI Workflows, leading the design and deployment of production-grade ML/AI pipelines and workflows, significantly reducing technical debt and improving system accessibility.</li>
+                    <li>Architected an internal AI search tool leveraging Retrieval-Augmented Generation (RAG), optimizing retrieval pipelines to replace manual research with high-performance, automated semantic search.</li>
+                    <li>Developed churn prediction models using XGBoost and Random Forest to identify at-risk policyholders, achieving high-precision risk segmentation.</li>
+                    <li>Developed interactive visualizations in Tableau, translating complex ML risk models into actionable insights for diverse technical and business audiences.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-header">
+                    <div>
+                        <span class="company-name">Johnson, Hall and Delong Strategies LLC</span><br>
+                        <span class="job-title">Data Scientist</span>
+                    </div>
+                    <div class="date-location">Sep 2024 – Sep 2025 | Columbus, OH</div>
+                </div>
+                <ul class="bullet-list">
+                    <li>Engineered NLP pipelines to analyze conversation logs for sentiment and behavior trends, utilizing parameter tuning to increase model sensitivity.</li>
+                    <li>Developed a "Voice of the Customer" system processing 500+ audio files; implemented speech-to-text pipelines achieving 95% accuracy.</li>
+                    <li>Designed a robust SQL architecture and integrated it with Tableau, providing over 20 stakeholders with real-time, scalable views of global engagement metrics.</li>
+                    <li>Fine-tuned LLM parameters (Claude) and managed the end-to-end maintenance of data pipelines to ensure engineering excellence and 24/7 system reliability.</li>
+                </ul>
+            </div>
+
+            <div class="experience-item">
+                <div class="exp-header">
+                    <div>
+                        <span class="company-name">Ohio State University</span><br>
+                        <span class="job-title">Data Analyst</span>
+                    </div>
+                    <div class="date-location">Feb 2022 – Mar 2025 | Columbus, OH</div>
+                </div>
+                <ul class="bullet-list">
+                    <li>Engineered and deployed a high-impact student success model that identified attrition risks with 85% accuracy, enabling university leadership to execute proactive, data-driven interventions.</li>
+                    <li>Spearheaded a cross-functional data initiative to overhaul core curriculum delivery; utilized rigorous A/B testing and multivariate analysis to validate instructional changes.</li>
+                    <li>Directed the data architecture and statistical analysis for 30+ institutional research projects, ensuring data governance compliance and statistical validity for university leadership.</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="resume-section-block animate-in" style="animation-delay: 0.3s;">
+            <h2 class="section-heading">Education</h2>
+            <div class="experience-item">
+                <div class="exp-header">
+                    <div>
+                        <span class="company-name">Ohio State University</span><br>
+                        <span class="job-title">Bachelors of Science in Physics</span>
+                    </div>
+                    <div class="date-location">Aug 2021 | Columbus, OH</div>
+                </div>
+            </div>
+        </section>
+
+        <section class="resume-section-block animate-in" style="animation-delay: 0.4s;">
+            <h2 class="section-heading">Technical Skills & Certifications</h2>
+            <div class="skills-grid">
+                <div class="skill-group glass">
+                    <h4>Direct Skills</h4>
+                    <div class="tags">
+                        <span class="tag">LLM Agents</span>
+                        <span class="tag">LangGraph</span>
+                        <span class="tag">RAG</span>
+                        <span class="tag">MCP</span>
+                        <span class="tag">NLP</span>
+                        <span class="tag">Tableau</span>
+                        <span class="tag">ETL</span>
+                    </div>
+                </div>
+                <div class="skill-group glass">
+                    <h4>Core Stack</h4>
+                    <div class="tags">
+                        <span class="tag">Python</span>
+                        <span class="tag">R</span>
+                        <span class="tag">SQL</span>
+                        <span class="tag">Excel</span>
+                        <span class="tag">AI/ML Pipelines</span>
+                    </div>
+                </div>
+            </div>
+            <div style="margin-top: 2rem; color: var(--text-muted);">
+                <strong>Certifications:</strong> Google Data Analytics Certification, Multiple Agentic RAG/LLM Certifications
+            </div>
+        </section>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
