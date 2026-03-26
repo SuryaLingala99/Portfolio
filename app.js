@@ -1,16 +1,13 @@
 document.addEventListener('DOMContentLoaded', () => {
     const blob = document.getElementById('cursor-blob');
     
-    // Smooth blob movement
     document.addEventListener('mousemove', (e) => {
         const x = e.clientX;
         const y = e.clientY;
         
-        // Update large glow blob
         blob.style.left = `${x}px`;
         blob.style.top = `${y}px`;
         
-        // Create neon particle trail
         createParticle(x, y);
     });
 
@@ -22,7 +19,6 @@ document.addEventListener('DOMContentLoaded', () => {
         particle.style.left = `${x}px`;
         particle.style.top = `${y}px`;
         
-        // Random drift
         const vX = (Math.random() - 0.5) * 2;
         const vY = (Math.random() - 0.5) * 2;
         
@@ -47,14 +43,8 @@ document.addEventListener('DOMContentLoaded', () => {
                 particle.remove();
             }
         };
-        
         requestAnimationFrame(animateParticle);
     }
-
-    // Intersection Observer for scroll animations
-    const observerOptions = {
-        threshold: 0.1
-    };
 
     const observer = new IntersectionObserver((entries) => {
         entries.forEach(entry => {
@@ -62,7 +52,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 entry.target.classList.add('animate-in');
             }
         });
-    }, observerOptions);
+    }, { threshold: 0.1 });
 
     document.querySelectorAll('.animate-in').forEach(el => observer.observe(el));
 });
